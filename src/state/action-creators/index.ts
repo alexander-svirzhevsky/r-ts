@@ -1,5 +1,4 @@
 import axios from "axios";
-import { error } from "console";
 import { Dispatch } from "redux";
 import { ActionType } from "../action-types";
 import { Action } from "../actions"
@@ -8,11 +7,11 @@ export const searchRepositories = (term: string) => async (dispatch: Dispatch<Ac
     dispatch({
         type: ActionType.SEARCH_REPOSITORIES,
         payload: []
-    })
-    
-    try {
+    })		
+		
+    try {   
         const { data }:any = axios.get("https://registry.npmjs.org/-/v1/search", {
-            params: {
+            params: {     
                 text: term
             }
         })
