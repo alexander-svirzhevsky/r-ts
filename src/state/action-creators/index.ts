@@ -26,7 +26,6 @@ export const searchRepositories = (term: string) => async (dispatch: Dispatch<Ac
         })
         
     } catch (err) {
-        console.log(err);
         
         dispatch({
             type: ActionType.SEARCH_REPOSITORIES_ERROR,
