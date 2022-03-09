@@ -26,10 +26,14 @@ export const searchRepositories = (term: string) => async (dispatch: Dispatch<Ac
             payload: names
         })
         
-    } catch (err) {
+    } catch (error) {
+        let message
+        if (error instanceof Error) message = error.message
+        else message = String(error)
+        
         dispatch({
             type: ActionType.SEARCH_REPOSITORIES_ERROR,
-            payload: ""
+            payload: message
         });
     }
 }
